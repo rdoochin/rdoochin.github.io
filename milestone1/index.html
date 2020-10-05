@@ -13074,15 +13074,80 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><p>GitHub Page:</p>
+<a>https://github.com/rdoochin/rdoochin.github.io</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><h1>
+    <center>Final Tutorial: COVID19 and the United States Housing Market</center>
+</h1></p>
+<div>
+    <p>
+    <center>
+        CMPS-3160<br>
+        Data Science <br>
+        Rebekah Doochin and David Ziman<br>
+        Fall 2020<br>
+    </center>
+</p>
+</div>
+<br>
+<br>
+<div>
+    <h6>Important Information</h6>
+    <p>
+        We will be making updates to this page throughout the Fall 2020 semester. A final version of this
+        project will be abvailable on November 24, 2020.
+        <br>
+        <br>
+        To extract data we are using the Pandas library.  
+    </p>
+</div>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
 
-<span class="c1"># housing_sp represents housing sale prices by city. (March 2008 - March 2020)</span>
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div>
+    <h6>Datasets</h6>
+    <p>
+        We will be looking at various data sets to determine the impact that the COVID-19 pandemic 
+        has had on the housing market in the United States. Our first step was to import the two CSV files 
+        containing the data and store them both in dataframes.
+    </p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># housing_sp represents housing sale prices by city. (March 2008 - March 2020)</span>
 <span class="n">housing_sp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/archive/Sale_Prices_City.csv&#39;</span><span class="p">)</span>
 
 <span class="c1"># msp represents the median sale price for houses sold in the US. (July 2005 - April 2020)</span>
@@ -13094,9 +13159,30 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div>
+    <p>
+        The first dataset contains data on the sale prices of houses in various cities from the past 
+        twelve years. The cities included in the study were the largest cities in the US in 2008.
+        <br>
+        <br>
+        Although the cleaning and sorting the data initially seemed challenging, it was fairly
+        straightforward to tidy the data after familiarizing ourselves more with the proper techniques. In
+        the initial CSV file, all of the dates in which the data was stored were column titles rather than
+        values in a column titled “Dates.” To remedy the problem, we created “Dates” and “Price”
+        columns to hold the information that was previously stored in multiple columns. After doing this
+        and dropping the rows with NaN values, our dataframe appeared much cleaner and easier to
+        look at.
+    </p>
+</div>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### TIDY DATA FOR HOUSING_SP ###</span>
@@ -13123,7 +13209,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[3]:</div>
+    <div class="prompt output_prompt">Out[18]:</div>
 
 
 
@@ -13266,9 +13352,36 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div>
+    <p>
+        The second dataset we looked at contains the median sale prices of houses in the US
+        going back to 2005. This data was already fairly tidy, however this may be attributable to the
+        fact that it lacked detailed data at the city and state levels. Although this dataset was smaller
+        than the first, it can be used in conjunction with other data. We would like to merge this dataset
+        and compare median sale prices in cities to overall median sale prices for that year.
+        <br>
+        <br>
+        While we have not yet broadened the scope on the types of data we are looking at, we
+        think that it will be important to look at factors that affect the housing market in non-pandemic
+        years as well. Possible datasets that we will look at for this might include data regarding
+        economic growth or stock market prices.
+        <br>
+        <br>
+        Ultimately, the pandemic has affected different real estate asset classes very in various
+        ways, thereby changing the landscape of our cities and suburbs. It will be interesting to analyze
+        how the industry has changed in the past, and build data driven models to predict where it will
+        be going in the future.
+    </p>
+</div>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### TIDY DATA FOR MSP ###</span>
@@ -13276,6 +13389,7 @@ div#notebook {
 <span class="c1"># Already pretty tidy. </span>
 
 <span class="n">msp</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;MSPUS&quot;</span><span class="p">:</span> <span class="s2">&quot;Median_Sale_Price&quot;</span><span class="p">})</span>
+<span class="n">msp</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13288,7 +13402,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[4]:</div>
+    <div class="prompt output_prompt">Out[19]:</div>
 
 
 
@@ -13312,7 +13426,7 @@ div#notebook {
     <tr style="text-align: right;">
       <th></th>
       <th>DATE</th>
-      <th>Median_Sale_Price</th>
+      <th>MSPUS</th>
     </tr>
   </thead>
   <tbody>
@@ -13341,281 +13455,6 @@ div#notebook {
       <td>2006-07-01</td>
       <td>235600.0</td>
     </tr>
-    <tr>
-      <th>5</th>
-      <td>2006-10-01</td>
-      <td>245400.0</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>2007-01-01</td>
-      <td>257400.0</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>2007-04-01</td>
-      <td>242200.0</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>2007-07-01</td>
-      <td>241800.0</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>2007-10-01</td>
-      <td>238400.0</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>2008-01-01</td>
-      <td>233900.0</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>2008-04-01</td>
-      <td>235300.0</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>2008-07-01</td>
-      <td>226500.0</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>2008-10-01</td>
-      <td>222500.0</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>2009-01-01</td>
-      <td>208400.0</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>2009-04-01</td>
-      <td>220900.0</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>2009-07-01</td>
-      <td>214300.0</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>2009-10-01</td>
-      <td>219000.0</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>2010-01-01</td>
-      <td>222900.0</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>2010-04-01</td>
-      <td>219500.0</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>2010-07-01</td>
-      <td>224100.0</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>2010-10-01</td>
-      <td>224300.0</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>2011-01-01</td>
-      <td>226900.0</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>2011-04-01</td>
-      <td>228100.0</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>2011-07-01</td>
-      <td>223500.0</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>2011-10-01</td>
-      <td>221100.0</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>2012-01-01</td>
-      <td>238400.0</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>2012-04-01</td>
-      <td>238700.0</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>2012-07-01</td>
-      <td>248800.0</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>2012-10-01</td>
-      <td>251700.0</td>
-    </tr>
-    <tr>
-      <th>30</th>
-      <td>2013-01-01</td>
-      <td>258400.0</td>
-    </tr>
-    <tr>
-      <th>31</th>
-      <td>2013-04-01</td>
-      <td>268100.0</td>
-    </tr>
-    <tr>
-      <th>32</th>
-      <td>2013-07-01</td>
-      <td>264800.0</td>
-    </tr>
-    <tr>
-      <th>33</th>
-      <td>2013-10-01</td>
-      <td>273600.0</td>
-    </tr>
-    <tr>
-      <th>34</th>
-      <td>2014-01-01</td>
-      <td>275200.0</td>
-    </tr>
-    <tr>
-      <th>35</th>
-      <td>2014-04-01</td>
-      <td>288000.0</td>
-    </tr>
-    <tr>
-      <th>36</th>
-      <td>2014-07-01</td>
-      <td>281000.0</td>
-    </tr>
-    <tr>
-      <th>37</th>
-      <td>2014-10-01</td>
-      <td>298900.0</td>
-    </tr>
-    <tr>
-      <th>38</th>
-      <td>2015-01-01</td>
-      <td>289200.0</td>
-    </tr>
-    <tr>
-      <th>39</th>
-      <td>2015-04-01</td>
-      <td>289100.0</td>
-    </tr>
-    <tr>
-      <th>40</th>
-      <td>2015-07-01</td>
-      <td>295800.0</td>
-    </tr>
-    <tr>
-      <th>41</th>
-      <td>2015-10-01</td>
-      <td>302500.0</td>
-    </tr>
-    <tr>
-      <th>42</th>
-      <td>2016-01-01</td>
-      <td>299800.0</td>
-    </tr>
-    <tr>
-      <th>43</th>
-      <td>2016-04-01</td>
-      <td>306000.0</td>
-    </tr>
-    <tr>
-      <th>44</th>
-      <td>2016-07-01</td>
-      <td>303800.0</td>
-    </tr>
-    <tr>
-      <th>45</th>
-      <td>2016-10-01</td>
-      <td>310900.0</td>
-    </tr>
-    <tr>
-      <th>46</th>
-      <td>2017-01-01</td>
-      <td>313100.0</td>
-    </tr>
-    <tr>
-      <th>47</th>
-      <td>2017-04-01</td>
-      <td>318200.0</td>
-    </tr>
-    <tr>
-      <th>48</th>
-      <td>2017-07-01</td>
-      <td>320500.0</td>
-    </tr>
-    <tr>
-      <th>49</th>
-      <td>2017-10-01</td>
-      <td>337900.0</td>
-    </tr>
-    <tr>
-      <th>50</th>
-      <td>2018-01-01</td>
-      <td>331800.0</td>
-    </tr>
-    <tr>
-      <th>51</th>
-      <td>2018-04-01</td>
-      <td>315600.0</td>
-    </tr>
-    <tr>
-      <th>52</th>
-      <td>2018-07-01</td>
-      <td>330900.0</td>
-    </tr>
-    <tr>
-      <th>53</th>
-      <td>2018-10-01</td>
-      <td>322800.0</td>
-    </tr>
-    <tr>
-      <th>54</th>
-      <td>2019-01-01</td>
-      <td>313000.0</td>
-    </tr>
-    <tr>
-      <th>55</th>
-      <td>2019-04-01</td>
-      <td>322500.0</td>
-    </tr>
-    <tr>
-      <th>56</th>
-      <td>2019-07-01</td>
-      <td>318400.0</td>
-    </tr>
-    <tr>
-      <th>57</th>
-      <td>2019-10-01</td>
-      <td>327100.0</td>
-    </tr>
-    <tr>
-      <th>58</th>
-      <td>2020-01-01</td>
-      <td>329000.0</td>
-    </tr>
-    <tr>
-      <th>59</th>
-      <td>2020-04-01</td>
-      <td>313200.0</td>
-    </tr>
   </tbody>
 </table>
 </div>
@@ -13626,6 +13465,40 @@ div#notebook {
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div>
+    <h6>Collaboration Plan</h6>
+    <p>
+        To collaborate on our final tutorial we plan on utilizing a private GitHub repository so that
+        we both have access to current versions of our code and Jupyter notebooks. As we worked
+        through milestone 1 we found that it was easiest to communicate over FaceTime for less
+        technical questions or planning. However, for harder questions it was easiest to talk via Zoom
+        so that we could use the screen-sharing feature. Because we are also working on our Capstone
+        project together and communicate daily, we found that it was easier to talk as needed rather
+        than have set meeting times.
+        <br>
+        <br>
+        To work on code simultaneously we will utilize Visual Studio Code’s Live Share feature.
+        This will allow both of us to be hands on in the coding portion of the final tutorial and make
+        communication regarding specific lines of code easier. We had a few technical difficulties
+        getting VS Code working the way we liked for milestone 1, however the issues have been
+        resolved and it will be a useful tool for the remainder of the project.
+    </p>
+</div>
+<div>
+    <h6>Links to Datasets</h6>
+    <br>
+    <div>
+        <a>https://www.kaggle.com/paultimothymooney/zillow-house-price-data?select=Sale_Prices_City.csv</a>
+        <br>
+        <a>https://fred.stlouisfed.org/series/MSPUS</a>
+    </div>
+</div>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
