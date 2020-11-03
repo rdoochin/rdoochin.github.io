@@ -13078,7 +13078,7 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><p>GITHUB PAGE</p>
-<a href="https://github.com/rdoochin/rdoochin.github.io">https://github.com/rdoochin/rdoochin.github.io</a></p>
+<a href="https://rdoochin.github.io/">https://rdoochin.github.io/</a></p>
 
 </div>
 </div>
@@ -13176,8 +13176,8 @@ div#notebook {
 <br>
 All prices in the dataset from zillow.com (the dataframe which we have called 'zipcode_all_homes') are derived from the Zillow Home Value Index (ZHVI). After researching the website's methodology we determined that the ZHVI was an accurate and extensive representation of home values over time. 
 <br>
-More information regarding the ZHVI can be found at: 
-<a>https://www.zillow.com/research/zhvi-methodology-2019-highlights-26221/</a>.
+More information regarding the ZHVI can be found 
+<a href="https://www.zillow.com/research/zhvi-methodology-2019-highlights-26221/">here</a>.
 <br>
 <br>
 The following piece of code begins to tidy the Zillow dataset by dropping unecessary columns such as RegionType and StateName.</p>
@@ -13954,7 +13954,8 @@ The following piece of code begins to tidy the Zillow dataset by dropping uneces
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Created pivot table in order to plot prices by county over time.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Created a pivot table in order to plot prices by county over time.</span>
+
 <span class="n">meanPrice</span> <span class="o">=</span> <span class="n">nyYearDF</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
     <span class="n">index</span><span class="o">=</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CountyName&quot;</span><span class="p">],</span>
     <span class="n">values</span><span class="o">=</span><span class="s2">&quot;Price&quot;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span> 
@@ -13978,7 +13979,7 @@ The following piece of code begins to tidy the Zillow dataset by dropping uneces
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fb843624310&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fca8d2f2cd0&gt;</pre>
 </div>
 
 </div>
@@ -14027,10 +14028,12 @@ The following piece of code begins to tidy the Zillow dataset by dropping uneces
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Dropping extra cesus data. In the dataset we used, the</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Dropping extra census data. In the dataset we used, there was extra data every 10 years. </span>
+<span class="c1"># Using the annual population data gave us a more extensive dataset to work with.</span>
+
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ny_pop</span><span class="p">)):</span>
     <span class="k">if</span><span class="p">(</span><span class="n">ny_pop</span><span class="p">[</span><span class="s2">&quot;Program Type&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Census Base Population&quot;</span><span class="p">):</span>
         <span class="n">ny_pop</span> <span class="o">=</span> <span class="n">ny_pop</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
@@ -14051,16 +14054,18 @@ The following piece of code begins to tidy the Zillow dataset by dropping uneces
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Preparing to display the dataframes side by side.</span>
+
 <span class="n">pop_df</span> <span class="o">=</span> <span class="n">burrow_pop</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">burrow_pop</span><span class="p">[</span><span class="s2">&quot;Geography&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;New York County&quot;</span><span class="p">]</span>
 <span class="n">pop_df2</span> <span class="o">=</span> <span class="n">burrow_pop</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">burrow_pop</span><span class="p">[</span><span class="s2">&quot;Geography&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Kings County&quot;</span><span class="p">]</span>
 <span class="n">pop_df3</span> <span class="o">=</span> <span class="n">burrow_pop</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">burrow_pop</span><span class="p">[</span><span class="s2">&quot;Geography&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Richmond County&quot;</span><span class="p">]</span>
 <span class="n">pop_df4</span> <span class="o">=</span> <span class="n">burrow_pop</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">burrow_pop</span><span class="p">[</span><span class="s2">&quot;Geography&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Bronx County&quot;</span><span class="p">]</span>
 <span class="n">pop_df5</span> <span class="o">=</span> <span class="n">burrow_pop</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">burrow_pop</span><span class="p">[</span><span class="s2">&quot;Geography&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Queens County&quot;</span><span class="p">]</span>
 
+<span class="c1"># Creating a figure and axis object with subplots. </span>
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span><span class="n">ax2</span><span class="p">,</span><span class="n">ax3</span><span class="p">,</span><span class="n">ax4</span><span class="p">,</span><span class="n">ax5</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 
 <span class="n">pop_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Population&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;New York County&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
@@ -14109,7 +14114,7 @@ The following piece of code begins to tidy the Zillow dataset by dropping uneces
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Using only the counties that make up the 5 burrows.</span>
@@ -14132,10 +14137,10 @@ The following piece of code begins to tidy the Zillow dataset by dropping uneces
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Dataframe for felonies</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Dataframe for felonies.</span>
 <span class="n">burrow_felony</span> <span class="o">=</span> <span class="n">burrow_crime</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">burrow_felony</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">burrow_felony</span><span class="p">[</span><span class="s1">&#39;Conviction&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Misdemeanor&#39;</span><span class="p">:</span>
@@ -14144,7 +14149,7 @@ The following piece of code begins to tidy the Zillow dataset by dropping uneces
 <span class="n">burrow_felony</span> <span class="o">=</span> <span class="n">burrow_felony</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Total&#39;</span><span class="p">:</span><span class="s1">&#39;Fel_total&#39;</span><span class="p">})</span>
 <span class="n">burrow_felony</span> <span class="o">=</span> <span class="n">burrow_felony</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Other&#39;</span><span class="p">,</span> <span class="s1">&#39;Property&#39;</span><span class="p">,</span> <span class="s1">&#39;DWI&#39;</span><span class="p">,</span> <span class="s1">&#39;Drugs&#39;</span><span class="p">})</span>
 
-<span class="c1"># Dataframe for Misdemeanors</span>
+<span class="c1"># Dataframe for Misdemeanors.</span>
 <span class="n">burrow_misdemeanor</span> <span class="o">=</span> <span class="n">burrow_crime</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">burrow_misdemeanor</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">burrow_misdemeanor</span><span class="p">[</span><span class="s1">&#39;Conviction&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Felony&#39;</span><span class="p">:</span>
@@ -14166,7 +14171,7 @@ The following piece of code begins to tidy the Zillow dataset by dropping uneces
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[14]:</div>
+    <div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -14299,7 +14304,7 @@ The following piece of code begins to tidy the Zillow dataset by dropping uneces
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Merging to get the total number of probations.</span>
@@ -14307,7 +14312,6 @@ The following piece of code begins to tidy the Zillow dataset by dropping uneces
 <span class="n">sum_column</span> <span class="o">=</span> <span class="n">Total_probations</span><span class="p">[</span><span class="s2">&quot;Fel_total&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">Total_probations</span><span class="p">[</span><span class="s2">&quot;Mis_total&quot;</span><span class="p">]</span>
 <span class="n">Total_probations</span><span class="p">[</span><span class="s2">&quot;Total&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sum_column</span>
 <span class="n">Total_probations</span> <span class="o">=</span> <span class="n">Total_probations</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;index-fel&#39;</span><span class="p">,</span> <span class="s1">&#39;index-mis&#39;</span><span class="p">,</span> <span class="s1">&#39;Conviction-fel&#39;</span><span class="p">,</span> <span class="s1">&#39;Conviction-mis&#39;</span><span class="p">})</span>
-<span class="c1">#Total_probations.groupby(&quot;County&quot;).plot.line(x=&quot;Year&quot;, y=&quot;Total&quot;)</span>
 
 <span class="c1"># Preparing to display the dataframes side by side.</span>
 <span class="n">prob_df</span> <span class="o">=</span> <span class="n">Total_probations</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">Total_probations</span><span class="p">[</span><span class="s2">&quot;County&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;New York&quot;</span><span class="p">]</span>
@@ -14372,7 +14376,7 @@ The following piece of code begins to tidy the Zillow dataset by dropping uneces
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">pairwise_distances</span>
@@ -14397,7 +14401,7 @@ The following piece of code begins to tidy the Zillow dataset by dropping uneces
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[16]:</div>
+    <div class="prompt output_prompt">Out[14]:</div>
 
 
 
@@ -14498,7 +14502,7 @@ The following piece of code begins to tidy the Zillow dataset by dropping uneces
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Preparing to merge the two dataframes with population and probations.</span>
@@ -14524,7 +14528,7 @@ The following piece of code begins to tidy the Zillow dataset by dropping uneces
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -14570,7 +14574,7 @@ The following piece of code begins to tidy the Zillow dataset by dropping uneces
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Preparing to display the dataframes side by side.</span>
@@ -14586,7 +14590,6 @@ The following piece of code begins to tidy the Zillow dataset by dropping uneces
 <span class="n">cols4</span> <span class="o">=</span> <span class="n">df4</span><span class="p">[</span><span class="s2">&quot;Conviction&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="s2">&quot;Felony&quot;</span><span class="p">:</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span><span class="s2">&quot;Misdemeanor&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">})</span>
 <span class="n">cols5</span> <span class="o">=</span> <span class="n">df5</span><span class="p">[</span><span class="s2">&quot;Conviction&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="s2">&quot;Felony&quot;</span><span class="p">:</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span><span class="s2">&quot;Misdemeanor&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">})</span>
 
-<span class="c1"># Creating a figure and axis object with subplots. </span>
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span><span class="n">ax2</span><span class="p">,</span><span class="n">ax3</span><span class="p">,</span><span class="n">ax4</span><span class="p">,</span><span class="n">ax5</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
 
 <span class="c1"># Creating a second y axis for the population data. </span>
@@ -14652,7 +14655,7 @@ The red dots indicate felonies, the blue dots indicate misdemeanors, and the blu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Creating a figure and axis object with subplots. </span>
@@ -14725,7 +14728,7 @@ The red dots indicate felonies, the blue dots indicate misdemeanors, and the blu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">meanPrice</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Prices by County Over Time&quot;</span><span class="p">)</span>
@@ -14741,13 +14744,13 @@ The red dots indicate felonies, the blue dots indicate misdemeanors, and the blu
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[21]:</div>
+    <div class="prompt output_prompt">Out[19]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fb8413a8670&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fca8b0a77c0&gt;</pre>
 </div>
 
 </div>
@@ -14773,7 +14776,7 @@ The red dots indicate felonies, the blue dots indicate misdemeanors, and the blu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span><span class="n">ax2</span><span class="p">,</span><span class="n">ax3</span><span class="p">,</span><span class="n">ax4</span><span class="p">,</span><span class="n">ax5</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>  <span class="c1"># 1 row, 2 columns</span>
@@ -14817,14 +14820,14 @@ The red dots indicate felonies, the blue dots indicate misdemeanors, and the blu
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>We are still looking for a suitable data set on  housing data from 1970-1990</strong>
-<strong>Not much data on Richmond County (Staten Island) so it is less relevant than other counties</strong></p>
+<p>**We are still looking for a suitable data set on  housing data from 1970-1990<strong>\
+\</strong>There is not much data on Richmond County (Staten Island) so it is less relevant than other counties**</p>
 <p>When looking at the previous graphics, some interesting conclusions can be drawn. Firstly, the a declining population in the New York burrows is not a new phenomenon. It has happened several times in recent history. Firstly, throughout the 1970s New York was plagued by economic stagnation, rising crime rates, and a fleeting population. The five counties suffered from diminished tax revenue (find data) and teetered on the edge of bankruptcy.</p>
 <p>Population started to rebound in the city throughout the 1980s leading to a construction boom (find data), although it diminished in the late 1980s. Black Monday plagued the financial markets in 1987, marking the largest single day percentage decline in the stock market. This event shook the markets and was a catalyst for a decline in real estate prices in the early 1990s. This trend is reflected by the trough in population (demand for real estate) on the scatterplots above. In many counties, crime rates peaked at around point.</p>
 <p>The woes of the late 1980s and early 1990s were washed away by an "urban renewal" in New York throughout the 1990s. Prices rebounded as people migrated en masse back the the five burrows, as evidenced by the population data graphics. Once population starts to rebound, economic activity returned to New York and tax revenue increased (find data).</p>
-<p>Another interesting trend to note is the gentrification of Kings County (Brooklyn) following the Great Recession. This is reflected in the widening difference between the mean and the median home prices in the area. This reflects the data becoming more right skewed</p>
-<p>Interestingly, both population and prices were seemingly diminishing towards the latter part of the 2010s. Rather than being the core reason behind a flight from New York, perhaps COVID is only accelerating a trend that was</p>
-<p>Our goal moving forward is to build a more holistic picture of the five burrows so that we can better understand how New York, NY is being affected by COVID-19 in addition to how it will recover.</p>
+<p>Prices continue to increase throughout the 1990s and 2000s, until in 2008 the Great Depression struck. Given this financial crisis largely impacted real assets, housing prices were gutted (refer to graph of prices over time). In much of New York, population started to decline in the early 2000s and bottomed around 2008/2009. It seems as though a fleeting population is a good indicator of economic downturn and depressed real estate pricing.</p>
+<p>Interestingly, both population and prices were seemingly diminishing towards the latter part of the 2010s. Perhaps COVID only accelerated a trend that was already in motion.</p>
+<p>Our ultimate goal moving forward is to build a more holistic picture of the five burrows so that we can better understand how New York, NY is being affected by COVID-19 in addition to how it will recover.</p>
 <p><h6>Gentrification</h6>
 Another interesting trend to note is the gentrification of Kings County (Brooklyn) following the Great Recession. This is reflected in the widening difference between the mean and the median home prices in the area. It is evident that the data becoming more right skewed over time, indicating the presence of various outliers in the on the high end of the pricing data.</p>
 
@@ -14853,21 +14856,36 @@ Another interesting trend to note is the gentrification of Kings County (Brookly
     <h6>Links to Datasets</h6>
     <br>
     <div>
-        <p>zillow homes and apartments
-            <br>
-            The specific data we generated from this site can be found in our github repository.
-        </p>
+        <li>zillow homes and apartments</li>
         <a>https://www.zillow.com/research/data/</a>
+            <p>The specific data we generated from this site can be found in our github repository:</p>
+            <a href="https://github.com/rdoochin/rdoochin.github.io">https://github.com/rdoochin/rdoochin.github.io</a>
         <br>
-        <p>ny_pop</p>
+        <br>
+        <li>ny_pop</li>
         <a>https://catalog.data.gov/dataset/annual-population-estimates-for-new-york-state-and-counties-beginning-1970</a>
-        <p>ny_crime</p>
+        <br>
+        <br>
+        <li>ny_crime</li>
         <a>https://catalog.data.gov/dataset/sentences-to-probation-by-year-beginning-1970</a>
         <br>
     </div>
 </div>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
 </div>
     </div>
   </div>
